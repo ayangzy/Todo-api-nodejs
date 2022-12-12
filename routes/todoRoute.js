@@ -3,9 +3,9 @@ const router = express.Router()
 const todoController = require('../controllers/todoController')
 
 router
-	.route('/')
-	.post(todoController.createTodo)
-	.get(todoController.getAllTodo)
+  .route('/')
+  .post(todoController.createTodo)
+  .get(todoController.getAllTodo)
 
 router
   .route('/:id')
