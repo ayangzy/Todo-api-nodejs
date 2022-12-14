@@ -9,6 +9,7 @@ const dbConnect = require('./db/dbConnect')
 
 //routes
 const todoRoutes = require('./routes/todoRoute')
+const jwtToken = require('./routes/jwtRoute')
 
 //error handlers
 const notFoundMiddleware = require('./middleware/not-found')
@@ -16,16 +17,13 @@ const errorHandlerMiddleware = require('./middleware/error-handler')
 
 app.use(bodyParser.json())
 
-app.get('/test', (req, res) => {
-  res.status(200).send('<p>Hello you hit me</p>')
-})
-
 app.use('/api/v1/todos', todoRoutes)
+app.use('/api/v1/generate-jwt-token', jwtToken)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 6000
 
 const start = async (req, res) => {
   try {

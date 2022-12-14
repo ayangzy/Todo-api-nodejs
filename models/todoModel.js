@@ -13,6 +13,10 @@ const TodoSchema = mongoose.Schema(
       required: [true, 'Please provide a description'],
       maxlength: [1000, 'Description can not be more than 1000 characters'],
     },
+    userId: {
+      type: Number,
+      required: [true, 'please provide a userId'],
+    },
   },
   { timestamps: true },
 )

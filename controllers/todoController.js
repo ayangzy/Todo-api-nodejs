@@ -9,12 +9,14 @@ exports.createTodo = async (req, res) => {
       'The todo you are tying to add already exist',
     )
   }
+
+  req.body.userId = req.user.userId
   const newTodo = await Todo.create(req.body)
   createdResponse(res, 'Todo created successfully', newTodo)
 }
 
 exports.getAllTodo = async (req, res) => {
-  const todos = await Todo.find()
+  const todos = await Todo.find({ userId: req.user.userId })
   successResponse(res, 'Todos retrieved successfully', todos)
 }
 
