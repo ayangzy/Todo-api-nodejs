@@ -17,12 +17,12 @@ const errorHandlerMiddleware = require('./middleware/error-handler')
 
 app.use(bodyParser.json())
 
-app.use('/', (req, res) => {
-  res.status(200).send({
-    status: 200,
-    message: 'Welcome to TodoAPI',
-  })
-})
+// app.use('/', (req, res) => {
+//   res.status(200).send({
+//     status: 200,
+//     message: 'Welcome to TodoAPI',
+//   })
+// })
 
 app.use('/api/v1/todos', todoRoutes)
 app.use('/api/v1/generate-jwt-token', jwtToken)
